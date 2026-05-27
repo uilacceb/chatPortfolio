@@ -6,7 +6,6 @@ type CommandItem = {
 
 type HistoryItem = {
   command: string;
-  title: string;
   content: string;
   type?: "text" | "commands";
 };
@@ -36,8 +35,6 @@ const ResultPanel = ({ history, commands }: ResultPanelProps) => {
             </div>
 
             <div className="result-content">
-              <h2>{item.title}</h2>
-
               {item.type === "commands" ? (
                 <div className="command-suggestions">
                   <ul>

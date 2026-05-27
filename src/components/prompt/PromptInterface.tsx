@@ -6,7 +6,6 @@ import "../../css/promptInterface.css";
 
 type HistoryItem = {
   command: string;
-  title: string;
   content: string;
   type?: "text" | "commands";
 };
@@ -51,7 +50,6 @@ const PromptInterface = () => {
         ...prevHistory,
         {
           command: rawCommand,
-          title: result.about,
           content: result.content,
           type: "text",
         },
