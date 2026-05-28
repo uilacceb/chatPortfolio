@@ -1,7 +1,7 @@
 export type LinkItem = {
   label: string;
   href: string;
-  src?: string;
+  imageSrc?: string;
 };
 
 export type CommandItem = {
@@ -29,7 +29,15 @@ export const commands: CommandItem[] = [
     title: "projects",
     about: "Projects I have worked on",
     content:
-      "My projects include a Pokémon database explorer, a full-stack expense tracker, and a prompt-based portfolio website.",
+      "My projects include a Pokémon database explorer, a full-stack expense tracker, and more which you can find it here:",
+    type: "links",
+    links: [
+      {
+        label: "My Projects",
+        href: "https://www.uilacceb.com/projects",
+        imageSrc: "src/assets/contact-logos/idea.png",
+      },
+    ],
   },
   {
     title: "contact",
@@ -40,17 +48,30 @@ export const commands: CommandItem[] = [
       {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/uilacceb/",
-        src: "src/assets/contact-logos/linkedin.png",
+        imageSrc: "src/assets/contact-logos/linkedin.png",
       },
       {
         label: "GitHub",
         href: "https://github.com/uilacceb",
-        src: "src/assets/contact-logos/github2.png",
+        imageSrc: "src/assets/contact-logos/github2.png",
       },
       {
         label: "Email",
         href: "mailto:uilacceb@gmail.com",
-        src: "src/assets/contact-logos/email.png",
+        imageSrc: "src/assets/contact-logos/email.png",
+      },
+    ],
+  },
+  {
+    title: "resume",
+    about: "My resume",
+    content: "This is my resume. Click to view.",
+    type: "links",
+    links: [
+      {
+        label: "My resume",
+        href: "/Rebecca-resume.pdf",
+        imageSrc: "src/assets/contact-logos/resume.png",
       },
     ],
   },

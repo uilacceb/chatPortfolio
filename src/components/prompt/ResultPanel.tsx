@@ -79,26 +79,16 @@ const ResultPanel = ({ history, commands }: ResultPanelProps) => {
 
                   {item.links?.map((link) => (
                     <div className="contact-link-div" key={link.label}>
-                      {link.src && (
+                      {link.imageSrc && (
                         <img
-                          src={link.src}
+                          src={link.imageSrc}
                           alt={`${link.label} logo`}
                           width={25}
                           height={25}
                         />
                       )}
 
-                      <a
-                        href={link.href}
-                        target={
-                          link.href.startsWith("mailto:") ? undefined : "_blank"
-                        }
-                        rel={
-                          link.href.startsWith("mailto:")
-                            ? undefined
-                            : "noreferrer"
-                        }
-                      >
+                      <a href={link.href} target="_blank">
                         {link.label}
                       </a>
                     </div>
