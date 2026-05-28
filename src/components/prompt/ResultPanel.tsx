@@ -1,13 +1,12 @@
-type CommandItem = {
-  title: string;
-  about: string;
-  content: string;
-};
+import { useEffect, useRef } from "react";
+import type { CommandItem, LinkItem } from "../data/commands";
 
 type HistoryItem = {
   command: string;
+  title?: string;
   content: string;
-  type?: "text" | "commands";
+  type?: "text" | "commands" | "links";
+  links?: LinkItem[];
 };
 
 type ResultPanelProps = {
@@ -16,8 +15,23 @@ type ResultPanelProps = {
 };
 
 const ResultPanel = ({ history, commands }: ResultPanelProps) => {
+  const resultPanelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (resultPanelRef.current) {
+      resultPanelRef.current.scrollTo({
+        top: resultPanelRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [history]);
+
   return (
-    <section className="result-panel" aria-label="Portfolio result panel">
+    <section
+      className="result-panel"
+      aria-label="Portfolio result panel"
+      ref={resultPanelRef}
+    >
       {history.length === 0 ? (
         <div className="empty-state">
           <h2>Hi, welcome!</h2>
@@ -39,25 +53,56 @@ const ResultPanel = ({ history, commands }: ResultPanelProps) => {
                 <div className="command-suggestions">
                   <ul>
                     {commands.map((commandItem) => (
-                      <div className="prompt-list" key={commandItem.title}>
+                      <li className="prompt-list" key={commandItem.title}>
                         <span className="prompt-symbol">&gt;</span>
-                        <li>
+                        <span>
                           <span className="prompt-list-title">
                             {commandItem.title}
                           </span>{" "}
                           - {commandItem.about}
-                        </li>
-                      </div>
+                        </span>
+                      </li>
                     ))}
 
-                    <div className="prompt-list">
+                    <li className="prompt-list">
                       <span className="prompt-symbol">&gt;</span>
-                      <li>
+                      <span>
                         <span className="prompt-list-title">clear</span> - Clear
                         command history
-                      </li>
-                    </div>
+                      </span>
+                    </li>
                   </ul>
+                </div>
+              ) : item.type === "links" ? (
+                <div className="contact-links">
+                  <p>{item.content}</p>
+
+                  {item.links?.map((link) => (
+                    <div className="contact-link-div" key={link.label}>
+                      {link.src && (
+                        <img
+                          src={link.src}
+                          alt={`${link.label} logo`}
+                          width={25}
+                          height={25}
+                        />
+                      )}
+
+                      <a
+                        href={link.href}
+                        target={
+                          link.href.startsWith("mailto:") ? undefined : "_blank"
+                        }
+                        rel={
+                          link.href.startsWith("mailto:")
+                            ? undefined
+                            : "noreferrer"
+                        }
+                      >
+                        {link.label}
+                      </a>
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <p>{item.content}</p>

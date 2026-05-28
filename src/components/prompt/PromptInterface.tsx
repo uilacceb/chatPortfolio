@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { commands } from "../data/commands";
+import { commands, type LinkItem } from "../data/commands";
 import ResultPanel from "./ResultPanel";
 import PromptInputBox from "./PromptInputBox";
 import "../../css/promptInterface.css";
 
 type HistoryItem = {
   command: string;
+  title?: string;
   content: string;
-  type?: "text" | "commands";
+  type?: "text" | "commands" | "links";
+  links?: LinkItem[];
 };
 
 const PromptInterface = () => {
@@ -51,7 +53,8 @@ const PromptInterface = () => {
         {
           command: rawCommand,
           content: result.content,
-          type: "text",
+          type: result.type || "text",
+          links: result.links,
         },
       ]);
     } else {
