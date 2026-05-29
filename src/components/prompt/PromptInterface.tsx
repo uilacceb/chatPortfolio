@@ -2,7 +2,7 @@ import { useState } from "react";
 import { commands, type LinkItem } from "../data/commands";
 import ResultPanel from "./ResultPanel";
 import PromptInputBox from "./PromptInputBox";
-import "../../css/promptInterface.css";
+import "../../CSS/promptInterface.css";
 
 type HistoryItem = {
   command: string;
