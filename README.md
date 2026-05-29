@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Promptfolio / Rebecca CLI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A command-style portfolio website built with React and TypeScript.
 
-Currently, two official plugins are available:
+Instead of using a traditional navigation menu, users can type commands such as `about`, `skills`, `projects`, `resume`, and `contact` to explore the portfolio.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was also created as a practice project for learning Playwright and writing automated end-to-end tests for user-facing web workflows.
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Promptfolio is a small interactive portfolio project that uses a prompt-style interface. Users type commands into an input field, and the page returns matching information, links, or helpful messages.
 
-## Expanding the ESLint configuration
+The project focuses on both frontend development and quality assurance. It demonstrates React and TypeScript skills while also showing how important user flows can be tested with Playwright automation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* React
+* TypeScript
+* CSS
+* Vite
+* Playwright
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Available Commands
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Command    | Description                                |
+| ---------- | ------------------------------------------ |
+| `about`    | Shows a short introduction                 |
+| `skills`   | Shows technical and testing skills         |
+| `projects` | Shows project information or project links |
+| `resume`   | Shows resume link                          |
+| `contact`  | Shows LinkedIn, GitHub, and email links    |
+| `cmds`     | Shows all available commands               |
+| `clear`    | Clears command history                     |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Testing Focus
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project includes Playwright automated end-to-end tests for:
+
+* Landing page content
+* Prompt input visibility
+* Valid command behavior
+* Invalid command handling
+* Contact links
+* Resume and project links
+* Link href validation
+* Contact logo visibility
+* Command history clearing
+* Reusable Page Object Model-style helper for prompt command actions
+
+
+## Purpose
+
+This project is designed to demonstrate:
+
+* Frontend development with React and TypeScript
+* Command-based UI design
+* Basic accessibility-minded selectors
+* Automated end-to-end testing with Playwright
+* A QA mindset through positive, negative, and link validation test cases
+
+## Author
+
+Rebecca Liu
