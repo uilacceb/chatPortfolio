@@ -20,13 +20,13 @@ export const commands: CommandItem[] = [
       "I'm a QA Analyst / Application Tester with hands-on experience in frontend development, manual testing, and end-to-end validation. I enjoy working on user-facing web applications, understanding how users interact with products, finding issues before release, and helping teams deliver reliable, easy-to-use experiences.",
   },
   {
-    title: "skills",
+    title: "skill",
     about: "Skills I am proficient in",
     content:
       "React, TypeScript, JavaScript, HTML, CSS, Node.js, Express, MongoDB, Playwright, Manual Testing, API Testing.",
   },
   {
-    title: "projects",
+    title: "project",
     about: "Projects I have worked on",
     content:
       "My projects include a Pokémon database explorer, a full-stack expense tracker, and more which you can find it here:",

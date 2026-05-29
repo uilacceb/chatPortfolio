@@ -45,7 +45,9 @@ const PromptInterface = () => {
       return;
     }
 
-    const result = commands.find((item) => item.title === command);
+    const result = commands.find(
+      (item) => item.title === command.toLowerCase(),
+    );
 
     if (result) {
       setHistory((prevHistory) => [

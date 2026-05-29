@@ -48,7 +48,7 @@ test("the 'cmds' text should be bold", async ({ page }) => {
 
 test("should display footer", async ({ page }) => {
   const year = new Date().getFullYear();
-  expect(page.locator("footer")).toContainText(year.toString());
+  await expect(page.locator("footer")).toContainText(year.toString());
 });
 
 test("should display header logo", async ({ page }) => {

@@ -3,6 +3,7 @@ type PromptInputBoxProps = {
   setInput: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit: (e: React.FormEvent) => void;
 };
+export const placeholderText = "Try: about, skill, project...";
 
 const PromptInputBox = ({
   input,
@@ -16,11 +17,11 @@ const PromptInputBox = ({
         id="command-input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Try: about, skills, projects..."
+        placeholder={placeholderText}
       />
 
       <button
-      id="submit-button"
+        id="submit-button"
         type="submit"
         onKeyDown={(e) => {
           if (e.key === "Enter") {
