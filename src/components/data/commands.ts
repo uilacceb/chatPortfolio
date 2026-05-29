@@ -1,3 +1,9 @@
+import projectLogo from "../../assets/contact-logos/idea.png";
+import linkedinLogo from "../../assets/contact-logos/linkedin.png";
+import gitHubLogo from "../../assets/contact-logos/github2.png";
+import emailLogo from "../../assets/contact-logos/email.png";
+import resumeLogo from "../../assets/contact-logos/resume.png";
+
 export type LinkItem = {
   label: string;
   href: string;
@@ -35,7 +41,7 @@ export const commands: CommandItem[] = [
       {
         label: "My Projects",
         href: "https://www.uilacceb.com/projects",
-        imageSrc: "src/assets/contact-logos/idea.png",
+        imageSrc: projectLogo,
       },
     ],
   },
@@ -48,17 +54,17 @@ export const commands: CommandItem[] = [
       {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/uilacceb/",
-        imageSrc: "src/assets/contact-logos/linkedin.png",
+        imageSrc: linkedinLogo,
       },
       {
         label: "GitHub",
         href: "https://github.com/uilacceb",
-        imageSrc: "src/assets/contact-logos/github2.png",
+        imageSrc: gitHubLogo,
       },
       {
         label: "Email",
         href: "mailto:uilacceb@gmail.com",
-        imageSrc: "src/assets/contact-logos/email.png",
+        imageSrc: emailLogo,
       },
     ],
   },
@@ -71,7 +77,7 @@ export const commands: CommandItem[] = [
       {
         label: "My resume",
         href: "/Rebecca-resume.pdf",
-        imageSrc: "src/assets/contact-logos/resume.png",
+        imageSrc: resumeLogo,
       },
     ],
   },
